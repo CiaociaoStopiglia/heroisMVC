@@ -1,6 +1,7 @@
 // Importar pacotes/bibliotecas
 import express from "express";
 import dotenv from "dotenv";
+import heroisRoutes from "./src/routes/heroisRoutes.js";
 
 // Criar aplicação com Express e configurar para aceitar JSON
 const app = express();
@@ -17,6 +18,8 @@ app.get("/", (req, res) => {
 
 
 // Aqui vão todas suas Rotas
+
+app.use("/herois", heroisRoutes);
 
 
 // Iniciar servidor escutando na porta definida
