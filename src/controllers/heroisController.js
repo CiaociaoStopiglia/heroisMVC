@@ -10,4 +10,17 @@ const getAllHerois = (req, res) => {
     });
 };
 
-export { getAllHerois };
+const getHeroiById = (req, res) => {
+    let id = req.params.id;
+    id = parseInt(id);
+    const heroi = herois.find(i => i.id === id);
+
+    if (heroi) {
+        res.status(200).json(heroi);
+    } else {
+        res.status(404).json({erro: `heroi com is ${id} nao encontrado`
+        });
+    }
+};
+
+export { getAllHerois, getHeroiById };
